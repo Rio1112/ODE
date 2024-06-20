@@ -1,0 +1,12 @@
+site_name: Ode
+
+theme: 
+  name: "material"
+
+plugins:
+  - mkdocstrings 
+ 
+nav:
+  - Index: index.md
+  - Reference: reference.md 
+
