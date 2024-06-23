@@ -218,9 +218,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#runge-kutta" class="md-nav__link">
+  <a href="#runge-kuttark" class="md-nav__link">
     <span class="md-ellipsis">
-      Runge-Kutta
+      Runge-Kutta(RK)
     </span>
   </a>
   
@@ -236,9 +236,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#metodo-runge-kutta-4" class="md-nav__link">
+  <a href="#rk4" class="md-nav__link">
     <span class="md-ellipsis">
-      Metodo Runge-Kutta 4
+      RK4
     </span>
   </a>
   
@@ -317,9 +317,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#runge-kutta" class="md-nav__link">
+  <a href="#runge-kuttark" class="md-nav__link">
     <span class="md-ellipsis">
-      Runge-Kutta
+      Runge-Kutta(RK)
     </span>
   </a>
   
@@ -335,9 +335,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#metodo-runge-kutta-4" class="md-nav__link">
+  <a href="#rk4" class="md-nav__link">
     <span class="md-ellipsis">
-      Metodo Runge-Kutta 4
+      RK4
     </span>
   </a>
   
@@ -363,7 +363,7 @@
 <p>Para este trabajo resolveremos ecuaciones diferenciales usando rk2, rk4 y euler. 
 Estas 3 formas de resolver EDOs seran aplicadas a diversas ecuaciones donde hablaremos de en que caso resulta mejor utilizar un metodo en concreto y sus diferencias.</p>
 <h2 id="metodo-de-euler">Metodo de Euler</h2>
-<p>Este metodo se basa en una expansion de Taylor de una funcion x(t). De manera que hacemos x(t+h), donde h repriesenta un salto infinetesimal
+<p>Este metodo se basa en una expansion de Taylor de una funcion x(t). De manera que hacemos x(t+h), donde h representa un salto infinitesimal
 $$
 Taylor[ x(t+h) ]= x(t) + h\frac{dx}{dt} + \overbrace{ \frac{h^2}{2} \frac{d^2x}{dt^2} } ^{\epsilon} + O(h^3 ) 
 $$</p>
@@ -371,12 +371,12 @@ $$</p>
 $$
 x(t + h) = x(t) + hf(x,t)
 $$</p>
-<p>Par problemas mas complejos necesitamos una mejor aproximacion, la cual podemos obtener en base a los siguientes parametros:
-1- Empezamos con t0=0 y x0=0
-2- Discretizamos el tiempo de la forma ti
-3- Encontramos un x para cada punto del tiempo, de la forma xi = xi-1 + hf(xi-1)</p>
-<h2 id="runge-kutta">Runge-Kutta</h2>
-<p>El metodo de Rounge-Kutta es un metodo numerico el cual se usa para aproximar la solucin de una ecuacion diferencial. Este es uno de los metodos mas utiles para la resolucion de ecuaciones diferenciales debido a su estabilidad. Hay varios tipos de Rounge-Kutta cuya diferencia radica en su grado. Este es un metodo que parte del metodo de Euler, no obstante, este tiene un mayor rendimiento a nivel computacional. A continuacion veremos dos formas de este. </p>
+<p>Para problemas mas complejos necesitamos una mejor aproximacion, la cual podemos obtener en base a los siguientes parametros:
+1- Empezamos con t0=0 y x0=0.
+2- Discretizamos el tiempo de la forma ti.
+3- Encontramos un x para cada punto del tiempo, de la forma xi = xi-1 + hf(xi-1).</p>
+<h2 id="runge-kuttark">Runge-Kutta(RK)</h2>
+<p>El metodo de Rounge-Kutta es un metodo numerico el cual se usa para aproximar la solucin de una ecuacion diferencial. Este es uno de los metodos mas utiles para la resolucion de ecuaciones diferenciales debido a su estabilidad. Hay varios tipos de Runge-Kutta cuya diferencia radica en su grado. Este es un metodo que parte del metodo de Euler, no obstante, este tiene un mayor rendimiento a nivel computacional. A continuacion veremos dos formas de este. </p>
 <h2 id="rk2">RK2</h2>
 <p>Lo que buscamos con este metodo es evaluar el punto medio para evaluar en el metodo de Euler. Osea, buscamos el punto t+ h/2. </p>
 <p>Entonces hagamos la expansion de Taylor alrededor del punto t + h/2. </p>
@@ -395,12 +395,12 @@ $$</p>
 <p>$$
 x(t + h) = x(t) + hf[x(t + h/2), t + h/2] + O(h^3)
 $$</p>
-<p>Hay un inconveniente, necesitamos el valor del punto medio, no obstante, podemos solucionar este problema aproximando este punto. ESto lo hacemos de una manera muy sencilla. (x+h/2) = Su aproximacion es x(t) + h/2 * f(x,t).</p>
+<p>Hay un inconveniente, necesitamos el valor del punto medio, no obstante, podemos solucionar este problema aproximando este punto. Esto lo hacemos de una manera muy sencilla. Su aproximacion es: (x+h/2) = x(t) + h/2 * f(x,t).</p>
 <p>Ahora si, obtenemos finalmente las ecuaciones de este metodo 
 * $k_1 = hf(x,t),$
 * $k_2 = hf\left(x + \frac{k_1}{2},t + \frac{h}{2}\right)$</p>
-<h2 id="metodo-runge-kutta-4">Metodo Runge-Kutta 4</h2>
-<p>La diferencia con el metodo anteriror es que este usa mas puntos entre x(t) y x(t+h)  mediante expansiones de Taylor. Para este punto el algenra se vuelve muy engorroso y llega a tener una complejidad desproporcionada para algunos problemas, por lo cual si hacemos una relacion entre su complejidad y su funcionalidad el metodo de RK4 termina siendoo el metodo predilecto. 
+<h2 id="rk4">RK4</h2>
+<p>La diferencia con el metodo anterior es que este usa mas puntos entre x(t) y x(t+h)  mediante expansiones de Taylor. Para este punto el algebra se vuelve muy engorroso y llega a tener una complejidad desproporcionada para algunos problemas, por lo cual si hacemos una relacion entre su complejidad y su funcionalidad el metodo de RK4 termina siendo el metodo predilecto. 
 Sus ecuaciones son las siguiente: </p>
 <ul>
 <li>$k_1 = hf(x, t)$,</li>
